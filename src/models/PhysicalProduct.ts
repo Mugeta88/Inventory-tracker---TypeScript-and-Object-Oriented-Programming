@@ -1,10 +1,10 @@
-import Product from "./Product.ts";
+import {Product} from "./Product";
 
 
-class PhysicalProduct extends Product {
+export class PhysicalProduct extends Product {
     weight: number;
 
-    constructor(sku: string, name: string, price: number){
+    constructor(sku: string, name: string, price: number, weight: number){
         super(sku, name, price);
         this.weight = weight;
     }
@@ -14,12 +14,12 @@ class PhysicalProduct extends Product {
     }
 
     getPriceWithTax(quantity: number) {
-        return (this.price * quantity) * (1 + 0.1);
+        const taxRate = 0.10;
+        return (this.price * quantity) * (1 + taxRate);
     }
 
-    getWeight() {
-        return `${this.weight}kg`;
+    get formattedWeight(): string {
+        return `${this.weight} kg`;
     }
-
 
 }
