@@ -1,12 +1,12 @@
-import Product from "./Product.ts";
+import {Product} from "./Product";
 
-class DigitalProduct extends Product {
+export class DigitalProduct extends Product {
     fileSize: number;
 
 
-    constructor(sku: string, name: string, price: number){
+    constructor(sku: string, name: string, price: number, fileSize: number){
         super(sku, name, price);
-        this.fileSize = this.fileSize;
+        this.fileSize = fileSize;
     }
 
     displayDetails(): string {
@@ -14,10 +14,10 @@ class DigitalProduct extends Product {
     }
 
     getPriceWithTax(quantity: number) {
-        return (this.price * quantity);
+        return this.price * quantity;
     }
 
-    getFileSize() {
-        return `${this.fileSize}megabytes`;
+    get formattedFileSize(): string {
+        return `${this.fileSize} MB`;
     }
 }
