@@ -10,7 +10,7 @@ let products = [graffitiPainting, onlinePainting];
 for (const product of products) {
     console.log(product.displayDetails());
 
-    let finalPrice = product.getPriceWithTax(1);
+    let finalPrice = product.getPriceWithTax(1).toFixed(2);
     console.log(`Final price + tax: $${finalPrice}`)
 }
 
