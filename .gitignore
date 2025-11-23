@@ -1,3 +1,8 @@
 node_modules/
 dist/
 .DS_Store
+
+# TypeScript build outputs
+*.js
+*.js.map
+*.d.ts
