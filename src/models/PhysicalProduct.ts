@@ -1,7 +1,10 @@
 import {Product} from "./Product";
+import { DiscountableProduct } from "../interfaces/DiscountableProduct";
 
 
-export class PhysicalProduct extends Product {
+
+
+export class PhysicalProduct extends Product implements DiscountableProduct {
     weight: number;
 
     constructor(sku: string, name: string, price: number, weight: number){
@@ -20,6 +23,18 @@ export class PhysicalProduct extends Product {
 
     get formattedWeight(): string {
         return `${this.weight} kg`;
+    }
+
+
+
+    applyDiscount(quantity: number): number {
+        let discount = 0; 
+        if (quantity >= 15) {
+            discount += 0.10;
+        }
+
+        let discountPrice = this.price * (1 - discount);
+        return discountPrice;
     }
 
 }
