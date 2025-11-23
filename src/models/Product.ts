@@ -1,4 +1,4 @@
-class Product {
+export class Product {
     sku: string;
     name: string;
     price: number;
@@ -14,7 +14,7 @@ class Product {
         return `${this.name} costs $${this.price} and has a sku number of: ${this.sku}.`
     }
 
-    getPriceWithTax(quantity: number, taxRate: number) {
+    getPriceWithTax(quantity: number, taxRate: number): number{
         return (this.price * quantity) * (1 + taxRate);
     }
 }
